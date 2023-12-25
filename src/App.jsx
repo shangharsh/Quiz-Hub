@@ -5,7 +5,14 @@ import Footer from './components/Footer/Footer';
 import Home from './pages/Home';
 import Quiz from './pages/Quiz';
 import Result from './pages/Result';
+import { useState } from 'react';
 const App = () => {
+
+  const [name, setName] = useState();
+
+  const fetchQuestions = () =>{
+    
+  }
 
   return (
     <BrowserRouter>
@@ -14,7 +21,7 @@ const App = () => {
     }}>
       <Header/>
       <Routes>
-        <Route path='/' element={<Home/>}/>
+        <Route path='/' element={<Home name={name} setName={setName} fetchQuestions={fetchQuestions}/>}/>
         <Route path='/quiz' element={<Quiz/>}/>
         <Route path='/result' element={<Result/>}/>
       </Routes>

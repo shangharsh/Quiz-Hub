@@ -32,12 +32,25 @@ const Home = ({name, setName, fetchQuestions}) => {
         80&w=1782&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D}" alt="Quiz Image" />
         </section>
         <section className='w-25'>
+
           <div className='fs-4 text-center mb-3'>Quiz Settings</div>
+
           {error && <ErrorMessage>please fill all the fields.</ErrorMessage>}
-          <TextField className='mb-3' label='Enter Name' variant='outlined' fullWidth
+
+          <TextField 
+          className='mb-3' 
+          label='Enter Name' 
+          variant='outlined' 
+          fullWidth
           onChange={(e)=>setName(e.target.value)}          
           ></TextField>
-          <TextField className='mb-3' select label='Select Category' variant='outlined' fullWidth
+
+          <TextField 
+          className='mb-3' 
+          select 
+          label='Select Category' 
+          variant='outlined' 
+          fullWidth
           onChange={(e)=> setCategory(e.target.value)}
           value={category}
           >
@@ -45,23 +58,29 @@ const Home = ({name, setName, fetchQuestions}) => {
                 <MenuItem value={item.value} key={item.category}>
                 {item.category}
                 </MenuItem>
-              )
-            )}
+              ))}
           </TextField>
-          <TextField className='mb-3' label='Select Difficulty' select variant='outlined' fullWidth
+
+          <TextField 
+          className='mb-3' 
+          label='Select Difficulty' 
+          select 
+          variant='outlined' 
+          fullWidth
           onChange={(e)=> setDifficulty(e.target.value)}
           value={difficulty}
           >
-            <MenuItem value='Easy' key='easy'>
+            <MenuItem value='easy' key='Easy'>
               Easy
             </MenuItem>
-            <MenuItem value='Medium' key='medium'>
+            <MenuItem value='medium' key='Medium'>
               Medium
             </MenuItem>
-            <MenuItem value='Hard' key='hard'>
+            <MenuItem value='hard' key='Hard'>
               Hard
             </MenuItem>
           </TextField>
+
           <Button fullWidth variant='contained' color='primary' size='large' onClick={handleSubmit}>Submit</Button>
         </section>
     </div>

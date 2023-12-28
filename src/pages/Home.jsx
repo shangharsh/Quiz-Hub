@@ -81,7 +81,7 @@ const Home = ({name, setName, fetchQuestions}) => {
             </MenuItem>
           </TextField>
 
-          <Button fullWidth variant='contained' color='primary' size='large' onClick={handleSubmit}>Submit</Button>
+          <Button fullWidth variant='contained' color='primary' size='large' onClick={handleSubmit}>Start Quiz</Button>
         </section>
     </div>
   )

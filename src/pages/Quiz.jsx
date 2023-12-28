@@ -1,11 +1,13 @@
 import { CircularProgress } from '@mui/material';
 import React, { useEffect, useState } from 'react'
 import Question from '../components/Question/Question';
+import { useNavigate } from 'react-router-dom';
 
 const Quiz = ({name, questions, setQuestions, score, setScore}) => {
   const [options, setOptions] = useState();
   const [curQues, setCurQues] = useState(0);
-
+  
+  const navigate = useNavigate();
   useEffect(() => {
     setOptions(
       questions &&
@@ -14,9 +16,10 @@ const Quiz = ({name, questions, setQuestions, score, setScore}) => {
           ...questions[curQues]?.incorrect_answers,   
         ])
     );
-  }, [questions]);
-
-  console.log(questions);
+    if(!name){
+    navigate('/');
+  }
+  }, [questions, curQues]);
   
   const handleShuffle = (optionItems) => {
     return optionItems.sort(() => Math.random() - 0.5);
